@@ -321,9 +321,6 @@ hkomma: @ Fügt 16 Bits an das Dictionary an.
 
   ldr r0, =Dictionarypointer @ Fetch Dictionarypointer to decide if compiling for RAM or for Flash
   ldr r1, [r0] @ Hole den Dictionarypointer
-  .ifdef within_os
-  push {r1}                  @ Remember Dictionarypointer for cacheflush
-  .endif
 
   ldr r2, =Backlinkgrenze
   cmp r1, r2
@@ -348,9 +345,6 @@ hkomma_fertig:
   bl allot
 
   .ifdef within_os
-  pushdatos     @ push dictionary pointer
-  pop {r6}
-  pushdaconst 2 @ push length of area to be flushed
   bl cacheflush
   .endif
 
