@@ -2,19 +2,23 @@
 *.elf
 *.hex
 *.list
+*.map
+*.lst
 *.srec
 *.o
 
-*.s
+*.orig
+*.rej
+
 *.swp
 ._*
 .DS_Store
+*.uf2
 freebsd-ra/mecrisp-stellaris-freebsd
 linux-ra/mecrisp-stellaris-linux
 linux-ra/mecrisp-stellaris-linux-vis
 linux-ra/mecrisp-stellaris-linux-with-disassembler-and-math
 linux/mecrisp-stellaris-linux
-*.uf2
 thumbulator/thumbulator-lm4f120-tm4c1294
 thumbulator/thumbulator-aducm4050
 thumbulator/thumbulator-lpc845m301
@@ -30,3 +34,10 @@ palanqin/palanqin/palanqin.com
 palanqin/palanqin/palanqin.lst
 mecrisp-stellaris-source/linux-ra.tar.gz
 
+rp2040-ra/mandelboot/Emulator/thumbulator-rp2040-bootblock
+rp2040-ra/mandelboot/Proof-of-concept/asciimandel
+rp2040-ra/mandelboot/Proof-of-concept/mandelint
+rp2040-ra/mandelboot/Proof-of-concept/tricornint
+mecrisp-stellaris-source/freebsd-ra/mecrisp-stellaris-freebsd
+mecrisp-stellaris-source/linux-ra/mecrisp-stellaris-linux
+mecrisp-stellaris-source/linux/mecrisp-stellaris-linux
