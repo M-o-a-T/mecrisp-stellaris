@@ -130,27 +130,28 @@ dots: @ Malt den Stackinhalt, diesmal verschönert !
   @ r1 enthält die Zahl der enthaltenen Elemente. r1 is number of elements
   cmp r1, #0 @ Bei einem leeren Stack ist nichts auszugeben.  Don't print elements for an empty stack
   beq 2f
-
   ldr r2, =datenstackanfang - 4 @ Anfang laden, wo ich beginne:  Start here !
+1:
+  subs r1, #1
+  beq 3f
+  subs r2, #4
 
-1:@ Hole das Stackelement !  Fetch stack element directly
+  @ Hole das Stackelement !  Fetch stack element directly
   ldr r0, [r2]
 
   push {r1, r2}
   pushda r0
   blx r4 @ . bewahrt die Register nicht.  Doesn't save registers !
   pop {r1, r2}
+  b 1b
 
-  subs r2, #4
-  subs r1, #1
-  bne 1b
-
-2:@ TOS zeigen  Print TOS
-  write " TOS: "
+3:@ TOS zeigen  Print TOS
+  write "TOS: "
   pushda tos
   blx r4
 
-  writeln " *>"
+2:@ done
+  writeln "*>"
   pop {r0, r1, r2, r3, r4, pc}
 
 
