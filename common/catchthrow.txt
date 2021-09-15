@@ -10,11 +10,11 @@
     sp@ >r handler @ >r rp@ handler !  execute
     r> handler !  rdrop  0 unloop ;
 
-: throw ( throwcode -- )  dup IF
+: throw ( throwcode -- )  ?dup IF
     \ handler @ 0= IF false task-state ! THEN \ unhandled error: stop task
     handler @ rp! r> handler ! r> swap >r sp! drop r>
     UNLOOP  EXIT
-    ELSE  drop  THEN ;
+    THEN ;
 
 
 \ -----------------------------------------------------------------------------
