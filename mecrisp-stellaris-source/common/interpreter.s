@@ -150,6 +150,7 @@ interpret:
 not_found_addr_r0_len_r1:
     pushda r0
     pushda r1
+    bl space
     bl stype
     Fehler_Quit_n " not found."
 
