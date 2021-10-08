@@ -30,7 +30,7 @@ stty -icanon -echo
    cat save.txt
    echo -e "save\" mecrisp-stellaris-linux-vis\n"
    # cat -
-} | qemu-arm-static mecrisp-stellaris-linux
+} | ./mecrisp-stellaris-linux
 
 stty sane
 
