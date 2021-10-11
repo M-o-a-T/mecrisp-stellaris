@@ -351,13 +351,13 @@ psp .req r7
 .ifdef registerallocator
 
 .macro Dictionary_Welcome
-  Wortbirne Flag_invisible, "- RA 2.5.9 -"
+  Wortbirne Flag_invisible, "- RA 2.5.9 MoaT -"
 .endm
 
 .macro welcome Meldung
   bl dotgaensefuesschen
         .byte 8f - 7f         @ Compute length of name field.
-7:      .ascii "RA 2.5.9"
+7:      .ascii "RA 2.5.9 MoaT\n"
 @       .ascii "\Meldung\n"
 8:      .p2align 1
 .endm
@@ -365,13 +365,13 @@ psp .req r7
 .else
 
 .macro Dictionary_Welcome
-  Wortbirne Flag_invisible, "- 2.5.9 -"
+  Wortbirne Flag_invisible, "- 2.5.9 MoaT -"
 .endm
 
 .macro welcome Meldung
   bl dotgaensefuesschen
         .byte 8f - 7f         @ Compute length of name field.
-7:      .ascii "2.5.9"
+7:      .ascii "2.5.9 MoaT\n"
 @       .ascii "\Meldung\n"
 8:      .p2align 1
 .endm
