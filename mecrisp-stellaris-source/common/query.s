@@ -149,7 +149,9 @@ accept: @ Nimmt einen String entgegen und legt ihn in einen Puffer.
 
 3:      @ Return has been pressed: Store string length, print space and leave.
         movs tos, r2              @ Give back accepted length
+.ifndef binary
         bl space                  @ Statt des Zeilenumbruches ein Leerzeichen ausgeben
+.endif
         pop {pc}
 
 @ -----------------------------------------------------------------------------
