@@ -53,22 +53,23 @@ accept: @ Nimmt einen String entgegen und legt ihn in einen Puffer.
         bl key              @ Tastendruck holen  Fetch keypress
         popda r0
 
+.ifndef binary
         cmp     r0, #127          @ Delete
         beq     6f                @ Should do the same as Backspace
-
+.endif
         cmp     r0, #32           @ ASCII 0-31 sind Steuerzeichen, 32 ist Space. Die Steuerzeichen müssten einzeln behandelt werden.
         bhs     2f                @ Space wird hier einfach so mit aufgenommen.
-
+.ifndef binary
         @ Steuerzeichen bearbeiten.
         @ Handle control characters below ascii 32 = space here.
         cmp     r0, #9            @ TAB ?
         beq     5f                @ Jump to replace TAB with space and include as normal character.
-
+.endif
         cmp     r0, #10           @ Bei Enter sind wir fertig - LF  Finish with LF
         beq     3f
         cmp     r0, #13           @ Bei Enter sind wir fertig - CR  Finish with CR
         beq     3f
-
+.ifndef binary
         cmp     r0, #8            @ Backspace
         bne     1b                @ Alle anderen Steuerzeichen ignorieren  Ignore all other control characters
 
@@ -83,7 +84,6 @@ accept: @ Nimmt einen String entgegen und legt ihn in einen Puffer.
   @ Ohne Unicode: Simply decrement count if one-byte-per-character is used.
         @ Tatsächlich ein Zeichen löschen. Noch ohne Unicode-Unterstützung.
         subs r2, #1                @ Ein Zeichen weniger im Puffer
-        b 1b
   .else
 
   @ Mit Unicode:
@@ -125,22 +125,26 @@ accept: @ Nimmt einen String entgegen und legt ihn in einen Puffer.
       movs r3, #0x40
       ands r3, r0
       beq 4b @ Wenn nein, lösche ein weiteres Zeichen. No ? Delete one more byte.
-      b 1b   @ Wenn ja, fertig. Dann habe ich soeben das erste Byte eines Unicode-Zeichens entfernt.  Yes ? Finished deleting.
   .endif
-
+  .endif
+      b 1b   @ done.
+.ifndef binary
 5:      @ Replace TAB with space:
         movs r0, #32
-
+.endif
 2:      @ Normale Zeichen annehmen
         @ Add a character to buffer if there is space left and echo it back.
         cmp     r2, tos              @ Ist der Puffer voll ?  Check buffer fill level.
         bhs     1b                   @ Keine weiteren Zeichen mehr annehmen.  No more characters if buffer is full !
-
+.ifdef binary
+       Fehler_Quit "buffer full"
+.else
         pushda r0
         bl emit                   @ Zeichen ausgeben
         adds    r2, #1            @ Pufferfüllstand erhöhen
         strb    r0, [r1, r2]      @ Zeichen in Puffer speichern
         b       1b
+.endif
 
 3:      @ Return has been pressed: Store string length, print space and leave.
         movs tos, r2              @ Give back accepted length
