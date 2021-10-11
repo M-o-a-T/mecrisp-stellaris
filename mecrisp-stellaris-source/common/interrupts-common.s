@@ -58,7 +58,7 @@ unhandled:                            @   and handler for unused interrupts
 @ -----------------------------------------------------------------------------
   push {lr} 
   @ writeln "Unhandled Interrupt !"
-  write "Unhandled Interrupt "
+  write "?IRQ "
   pushdatos
   mrs tos, ipsr
   bl hexdot

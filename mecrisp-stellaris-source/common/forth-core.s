@@ -290,7 +290,7 @@ CoreDictionaryAnfang: @ Dictionary-Einsprungpunkt setzen
 @ Finalize the dictionary structure and put a pointer into changeable Flash-Dictionary
 @ -----------------------------------------------------------------------------
 
-  Wortbirne_Kernende Flag_invisible, "--- Flash Dictionary ---"
+  Wortbirne_Kernende Flag_invisible, "- Flash -"
 
 @ -----------------------------------------------------------------------------
 @  End of Dictionary
