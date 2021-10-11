@@ -351,28 +351,28 @@ psp .req r7
 .ifdef registerallocator
 
 .macro Dictionary_Welcome
-  Wortbirne Flag_invisible, "--- Mecrisp-Stellaris RA 2.5.9 ---"
+  Wortbirne Flag_invisible, "--- RA 2.5.9 ---"
 .endm
 
 .macro welcome Meldung
   bl dotgaensefuesschen
         .byte 8f - 7f         @ Compute length of name field.
 7:      .ascii "Mecrisp-Stellaris RA 2.5.9"
-        .ascii "\Meldung\n"
+@       .ascii "\Meldung\n"
 8:      .p2align 1
 .endm
 
 .else
 
 .macro Dictionary_Welcome
-  Wortbirne Flag_invisible, "--- Mecrisp-Stellaris 2.5.9 ---"
+  Wortbirne Flag_invisible, "--- 2.5.9 ---"
 .endm
 
 .macro welcome Meldung
   bl dotgaensefuesschen
         .byte 8f - 7f         @ Compute length of name field.
 7:      .ascii "Mecrisp-Stellaris 2.5.9"
-        .ascii "\Meldung\n"
+@       .ascii "\Meldung\n"
 8:      .p2align 1
 .endm
 
