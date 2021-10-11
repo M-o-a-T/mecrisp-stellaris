@@ -7,7 +7,7 @@ AOPS = --warn --fatal-warnings -I../common/
 all : mecrisp-stellaris-numworks.bin 
 
 mecrisp-stellaris-numworks.o : mecrisp-stellaris-numworks.s
-	$(ARMGNU)-as mecrisp-stellaris-numworks.s -o mecrisp-stellaris-numworks.o
+	$(ARMGNU)-as $(AOPS) mecrisp-stellaris-numworks.s -o mecrisp-stellaris-numworks.o
 
 mecrisp-stellaris-numworks.bin : memmap mecrisp-stellaris-numworks.o
 	$(ARMGNU)-ld -o mecrisp-stellaris-numworks.elf -T memmap mecrisp-stellaris-numworks.o

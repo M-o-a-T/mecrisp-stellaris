@@ -7,7 +7,7 @@ AOPS = --warn --fatal-warnings -I../common/
 all : mecrisp-stellaris-microbit.bin
 
 mecrisp-stellaris-microbit.o : mecrisp-stellaris-microbit.s
-	$(ARMGNU)-as mecrisp-stellaris-microbit.s -o mecrisp-stellaris-microbit.o
+	$(ARMGNU)-as $(AOPS) mecrisp-stellaris-microbit.s -o mecrisp-stellaris-microbit.o
 
 mecrisp-stellaris-microbit.bin : memmap mecrisp-stellaris-microbit.o
 	$(ARMGNU)-ld -o mecrisp-stellaris-microbit.elf -T memmap mecrisp-stellaris-microbit.o

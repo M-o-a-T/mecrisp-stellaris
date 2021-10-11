@@ -7,7 +7,7 @@ AOPS = --warn --fatal-warnings -I../common/
 all : mecrisp-stellaris-lm4f120.bin 
 
 mecrisp-stellaris-lm4f120.o : mecrisp-stellaris-lm4f120.s
-	$(ARMGNU)-as mecrisp-stellaris-lm4f120.s -o mecrisp-stellaris-lm4f120.o
+	$(ARMGNU)-as $(AOPS) mecrisp-stellaris-lm4f120.s -o mecrisp-stellaris-lm4f120.o
 
 mecrisp-stellaris-lm4f120.bin : memmap mecrisp-stellaris-lm4f120.o
 	$(ARMGNU)-ld -o mecrisp-stellaris-lm4f120.elf -T memmap mecrisp-stellaris-lm4f120.o

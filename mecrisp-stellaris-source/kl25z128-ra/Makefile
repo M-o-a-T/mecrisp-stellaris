@@ -7,7 +7,7 @@ AOPS = --warn --fatal-warnings -I../common/
 all : mecrisp-stellaris-kl25z128.bin 
 
 mecrisp-stellaris-kl25z128.o : mecrisp-stellaris-kl25z128.s
-	$(ARMGNU)-as mecrisp-stellaris-kl25z128.s -o mecrisp-stellaris-kl25z128.o
+	$(ARMGNU)-as $(AOPS) mecrisp-stellaris-kl25z128.s -o mecrisp-stellaris-kl25z128.o
 
 mecrisp-stellaris-kl25z128.bin : memmap mecrisp-stellaris-kl25z128.o
 	$(ARMGNU)-ld -o mecrisp-stellaris-kl25z128.elf -T memmap mecrisp-stellaris-kl25z128.o

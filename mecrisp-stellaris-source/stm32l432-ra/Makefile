@@ -7,7 +7,7 @@ AOPS = --warn --fatal-warnings -I../common/
 all : mecrisp-stellaris-stm32l432.bin 
 
 mecrisp-stellaris-stm32l432.o : mecrisp-stellaris-stm32l432.s
-	$(ARMGNU)-as mecrisp-stellaris-stm32l432.s -g -o mecrisp-stellaris-stm32l432.o
+	$(ARMGNU)-as $(AOPS) mecrisp-stellaris-stm32l432.s -g -o mecrisp-stellaris-stm32l432.o
 
 mecrisp-stellaris-stm32l432.bin : memmap mecrisp-stellaris-stm32l432.o
 	$(ARMGNU)-ld -g -o mecrisp-stellaris-stm32l432.elf -T memmap mecrisp-stellaris-stm32l432.o

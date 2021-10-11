@@ -7,7 +7,7 @@ AOPS = --warn --fatal-warnings -I../common/
 all : mecrisp-stellaris-palanqin.bin
 
 mecrisp-stellaris-palanqin.o : mecrisp-stellaris-palanqin.s
-	$(ARMGNU)-as mecrisp-stellaris-palanqin.s -o mecrisp-stellaris-palanqin.o
+	$(ARMGNU)-as $(AOPS) mecrisp-stellaris-palanqin.s -o mecrisp-stellaris-palanqin.o
 
 mecrisp-stellaris-palanqin.bin : memmap mecrisp-stellaris-palanqin.o
 	$(ARMGNU)-ld -o mecrisp-stellaris-palanqin.elf -T memmap mecrisp-stellaris-palanqin.o

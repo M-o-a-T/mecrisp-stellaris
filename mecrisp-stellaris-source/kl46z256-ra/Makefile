@@ -7,7 +7,7 @@ AOPS = --warn --fatal-warnings -I../common/
 all : mecrisp-stellaris-kl46z256.bin 
 
 mecrisp-stellaris-kl46z256.o : mecrisp-stellaris-kl46z256.s
-	$(ARMGNU)-as mecrisp-stellaris-kl46z256.s -o mecrisp-stellaris-kl46z256.o
+	$(ARMGNU)-as $(AOPS) mecrisp-stellaris-kl46z256.s -o mecrisp-stellaris-kl46z256.o
 
 mecrisp-stellaris-kl46z256.bin : memmap mecrisp-stellaris-kl46z256.o
 	$(ARMGNU)-ld -o mecrisp-stellaris-kl46z256.elf -T memmap mecrisp-stellaris-kl46z256.o

@@ -7,7 +7,7 @@ AOPS = --warn --fatal-warnings -I../common/ -g
 all : mecrisp-stellaris-nrf52832.bin 
 
 mecrisp-stellaris-nrf52832.o : mecrisp-stellaris-nrf52832.s
-	$(ARMGNU)-as ${AOPS} mecrisp-stellaris-nrf52832.s -o mecrisp-stellaris-nrf52832.o
+	$(ARMGNU)-as $(AOPS) ${AOPS} mecrisp-stellaris-nrf52832.s -o mecrisp-stellaris-nrf52832.o
 
 mecrisp-stellaris-nrf52832.bin : memmap mecrisp-stellaris-nrf52832.o
 	$(ARMGNU)-ld -o mecrisp-stellaris-nrf52832.elf -T memmap mecrisp-stellaris-nrf52832.o

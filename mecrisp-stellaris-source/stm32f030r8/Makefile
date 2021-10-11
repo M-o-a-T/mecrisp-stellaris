@@ -10,7 +10,7 @@ AOPS = --warn --fatal-warnings -I../common/
 all : $(TARGET).bin 
 
 $(TARGET).o : $(TARGET).s
-	$(ARMGNU)-as $(TARGET).s -o $@
+	$(ARMGNU)-as $(AOPS) $(TARGET).s -o $@
 
 $(TARGET).bin : memmap $(TARGET).o
 	$(ARMGNU)-ld -o $(TARGET).elf -T memmap $(TARGET).o -Map=$(TARGET).map

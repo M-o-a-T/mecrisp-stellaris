@@ -7,7 +7,7 @@ AOPS = --warn --fatal-warnings -I../common/
 all : mecrisp-stellaris-aducm4050.bin 
 
 mecrisp-stellaris-aducm4050.o : mecrisp-stellaris-aducm4050.s
-	$(ARMGNU)-as mecrisp-stellaris-aducm4050.s -o mecrisp-stellaris-aducm4050.o
+	$(ARMGNU)-as $(AOPS) mecrisp-stellaris-aducm4050.s -o mecrisp-stellaris-aducm4050.o
 
 mecrisp-stellaris-aducm4050.bin : memmap mecrisp-stellaris-aducm4050.o
 	$(ARMGNU)-ld -o mecrisp-stellaris-aducm4050.elf -T memmap mecrisp-stellaris-aducm4050.o

@@ -7,7 +7,7 @@ AOPS = --warn --fatal-warnings -I../common/
 all : mecrisp-stellaris-stm32wb55.bin 
 
 mecrisp-stellaris-stm32wb55.o : mecrisp-stellaris-stm32wb55.s terminal.s turbo.s vectors.s flash.s interrupts.s STM32WBxx_CM4.svd.equates.s
-	$(ARMGNU)-as mecrisp-stellaris-stm32wb55.s -g -o mecrisp-stellaris-stm32wb55.o
+	$(ARMGNU)-as $(AOPS) mecrisp-stellaris-stm32wb55.s -g -o mecrisp-stellaris-stm32wb55.o
 
 mecrisp-stellaris-stm32wb55.bin : memmap mecrisp-stellaris-stm32wb55.o
 	$(ARMGNU)-ld -g -o mecrisp-stellaris-stm32wb55.elf -T memmap mecrisp-stellaris-stm32wb55.o

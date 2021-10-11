@@ -7,7 +7,7 @@ AOPS = --warn --fatal-warnings -I../common/
 all : mecrisp-stellaris-xmc1100.bin 
 
 mecrisp-stellaris-xmc1100.o : mecrisp-stellaris-xmc1100.s
-	$(ARMGNU)-as mecrisp-stellaris-xmc1100.s -o mecrisp-stellaris-xmc1100.o
+	$(ARMGNU)-as $(AOPS) mecrisp-stellaris-xmc1100.s -o mecrisp-stellaris-xmc1100.o
 
 mecrisp-stellaris-xmc1100.bin : memmap mecrisp-stellaris-xmc1100.o
 	$(ARMGNU)-ld -o mecrisp-stellaris-xmc1100.elf -T memmap mecrisp-stellaris-xmc1100.o
