@@ -227,11 +227,6 @@ CoreDictionaryAnfang: @ Dictionary-Einsprungpunkt setzen
   .include "../common/ra/interpreter.s"
   .ltorg
 
-  .ifndef within_os
-  .include "../common/interrupts-common.s"
-  .include "interrupts.s" @ You have to change interrupt handlers for Porting !
-  .endif
-
   .else
 
   .include "../common/double.s"
@@ -278,12 +273,13 @@ CoreDictionaryAnfang: @ Dictionary-Einsprungpunkt setzen
   .include "../common/interpreter.s"
   .ltorg
 
+  .endif
+
   .ifndef within_os
   .include "../common/interrupts-common.s"
   .include "interrupts.s" @ You have to change interrupt handlers for Porting !
   .endif
 
-  .endif
 
 @ -----------------------------------------------------------------------------
 @ Schließen der Dictionarystruktur und Zeiger ins Flash-Dictionary
