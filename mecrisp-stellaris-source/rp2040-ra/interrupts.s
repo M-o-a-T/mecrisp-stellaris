@@ -24,9 +24,6 @@
 @ All interrupt handlers work the same way and are generated with a macro:
 @------------------------------------------------------------------------------
 
-interrupt svcall
-interrupt pendsv
-
 interrupt TIMER_0
 interrupt TIMER_1
 interrupt TIMER_2

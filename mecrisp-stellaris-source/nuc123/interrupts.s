@@ -25,7 +25,6 @@
 @ All interrupt handlers work the same way and are generated with a macro:
 @------------------------------------------------------------------------------
 
-interrupt pendsv
 interrupt bod_out
 interrupt wdt
 interrupt eint0

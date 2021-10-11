@@ -32,10 +32,10 @@
 .word 0               @ 08: Reserved
 .word 0               @ 09: Reserved
 .word 0               @ 10: Reserved
-.word nullhandler+1   @ 11: SVCall handler
+.word irq_vektor_svcall+1   @ 11: SVCall handler
 .word 0               @ 12: Reserved
 .word 0               @ 13: Reserved
-.word nullhandler+1   @ 14: The PendSV handler
+.word irq_vektor_pendsv+1   @ 14: The PendSV handler
 .word irq_vektor_systick+1   @ 15: The SysTick handler
 
 .else @ Common vector table for all Cortex M3/M4 targets
@@ -52,10 +52,10 @@
 .word 0               @ 08: Reserved
 .word 0               @ 09: Reserved
 .word 0               @ 10: Reserved
-.word nullhandler+1   @ 11: SVCall handler
+.word irq_vektor_svcall+1   @ 11: SVCall handler
 .word nullhandler+1   @ 12: Debug monitor handler
 .word 0               @ 13: Reserved
-.word nullhandler+1   @ 14: The PendSV handler
+.word irq_vektor_pendsv+1   @ 14: The PendSV handler
 .word irq_vektor_systick+1   @ 15: The SysTick handler
 
 .endif

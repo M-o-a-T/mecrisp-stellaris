@@ -34,7 +34,7 @@
 .word 0				 		/*Reserved */		@ reserved
 .word 0				 		/*Reserved */		@ reserved
 .word 0				 		/*Reserved */		@ reserved
-.word nullhandler+1		/*svcall */
+.word irq_vektor_svcall+1		/*svcall */
 .word 0				 		/*Reserved */		@ reserved
 .word 0				 		/*Reserved */		@ reserved
 .word irq_vektor_pendsv+1		/*pendsv */

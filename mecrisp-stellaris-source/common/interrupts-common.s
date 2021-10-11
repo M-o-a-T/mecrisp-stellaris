@@ -141,6 +141,8 @@ irq_vektor_\Name:
 @ -----------------------------------------------------------------------------
 
 interrupt systick
+interrupt svcall
+interrupt pendsv
 initinterrupt fault, faulthandler, unhandled
 initinterrupt collection, nullhandler, unhandled
 
