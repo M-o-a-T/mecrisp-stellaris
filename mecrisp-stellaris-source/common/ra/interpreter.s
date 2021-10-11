@@ -251,7 +251,7 @@ quit_intern:
 quit_innenschleife:  @ Main loop of Forth system.
   .ifdef binary
     pushdatos
-    ldr tos, =#21 @ NAK
+    ldr tos, =#3 @ ETX
     bl emit
   .endif
 
@@ -291,7 +291,7 @@ quit_innenschleife:  @ Main loop of Forth system.
 
   .ifdef binary
     pushdatos
-    ldr tos, =#3 @ ETX
+    ldr tos, =#4 @ EOT
     bl emit
   .else
     writeln " ok."
