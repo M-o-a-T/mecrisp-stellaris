@@ -248,6 +248,12 @@ quit_intern:
   ldr r0, [r0]
   mov pc, r0
 
+  .ifdef binary
+    pushdatos
+    ldrb tos, #21 @ NAK
+    bl emit
+  .endif
+
 quit_innenschleife:  @ Main loop of Forth system.
   bl query
   bl interpret
@@ -283,7 +289,13 @@ quit_innenschleife:  @ Main loop of Forth system.
 
   .else
 
+  .ifdef binary
+    pushdatos
+    ldrb tos, #3 @ ETX
+    bl emit
+  .else
     writeln " ok."
+  .endif
     b.n quit_innenschleife
 
   .endif
