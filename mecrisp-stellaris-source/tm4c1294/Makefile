@@ -2,7 +2,7 @@
 ARMGNU?=arm-none-eabi
 
 COPS = -Wall  -Os -nostdlib -nostartfiles -ffreestanding -save-temps
-AOPS = --warn --fatal-warnings
+AOPS = --warn --fatal-warnings -I../common/
 
 all : mecrisp-stellaris-tm4c1294.bin 
 

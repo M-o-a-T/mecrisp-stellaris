@@ -3,7 +3,7 @@ TARGET ?= mecrisp-stellaris-stm32f030r8
 ARMGNU ?= arm-none-eabi
 
 COPS = -Wall  -Os -nostdlib -nostartfiles -ffreestanding -save-temps
-AOPS = --warn --fatal-warnings
+AOPS = --warn --fatal-warnings -I../common/
 
 .PHONY: clean all install
 

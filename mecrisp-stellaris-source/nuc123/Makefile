@@ -3,7 +3,7 @@ ARMGNU?=arm-none-eabi
 
 # debug build
 COPS = -Wall  -Os -nostdlib -nostartfiles -ffreestanding -save-temps
-AOPS = --warn --fatal-warnings
+AOPS = --warn --fatal-warnings -I../common/
 
 all : mecrisp-stellaris-nuc123.bin 
 

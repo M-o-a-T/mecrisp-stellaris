@@ -2,7 +2,7 @@
 ARMGNU?=arm-none-eabi
 
 COPS = -Wall  -Os -nostdlib -nostartfiles -ffreestanding -save-temps
-AOPS = --warn --fatal-warnings
+AOPS = --warn --fatal-warnings -I../common/
 
 all : mecrisp-stellaris-stm32f407diymore.bin
 

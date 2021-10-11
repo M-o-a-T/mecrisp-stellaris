@@ -16,6 +16,9 @@
 @    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 @
 
+@ macros
+.include "options.s"
+
 @ -----------------------------------------------------------------------------
 @ Bit-position equates (for setting or clearing a single bit)
 @ -----------------------------------------------------------------------------

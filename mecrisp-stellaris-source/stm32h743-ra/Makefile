@@ -2,7 +2,7 @@
 ARMGNU?=arm-none-eabi
 
 COPS = -Wall  -Og -nostdlib -nostartfiles -ffreestanding -save-temps
-AOPS = --warn --fatal-warnings
+AOPS = --warn --fatal-warnings -I../common/
 
 TARGET = stm32h743
 PROJECT = mecrisp-stellaris-$(TARGET)

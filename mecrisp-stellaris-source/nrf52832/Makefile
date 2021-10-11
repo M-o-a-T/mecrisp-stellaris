@@ -2,7 +2,7 @@
 ARMGNU?=arm-none-eabi
 
 COPS = -Wall  -O0 -nostdlib -nostartfiles -ffreestanding -save-temps
-AOPS = --warn --fatal-warnings -g
+AOPS = --warn --fatal-warnings -I../common/ -g
 
 all : mecrisp-stellaris-nrf52832.bin 
 
