@@ -135,16 +135,17 @@ accept: @ Nimmt einen String entgegen und legt ihn in einen Puffer.
 2:      @ Normale Zeichen annehmen
         @ Add a character to buffer if there is space left and echo it back.
         cmp     r2, tos              @ Ist der Puffer voll ?  Check buffer fill level.
-        bhs     1b                   @ Keine weiteren Zeichen mehr annehmen.  No more characters if buffer is full !
 .ifdef binary
-       Fehler_Quit "buffer full"
+        blo     2f                   @ No. go ahead.
+        Fehler_Quit "buffer full"
 .else
+        bhs     1b                   @ Keine weiteren Zeichen mehr annehmen.  No more characters if buffer is full !
         pushda r0
         bl emit                   @ Zeichen ausgeben
-        adds    r2, #1            @ Pufferfüllstand erhöhen
+.endif
+2:      adds    r2, #1            @ Pufferfüllstand erhöhen
         strb    r0, [r1, r2]      @ Zeichen in Puffer speichern
         b       1b
-.endif
 
 3:      @ Return has been pressed: Store string length, print space and leave.
         movs tos, r2              @ Give back accepted length
