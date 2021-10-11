@@ -277,6 +277,7 @@ CoreDictionaryAnfang: @ Dictionary-Einsprungpunkt setzen
 
   .ifndef within_os
   .include "../common/interrupts-common.s"
+  .ltorg
   .include "interrupts.s" @ You have to change interrupt handlers for Porting !
   .endif
 

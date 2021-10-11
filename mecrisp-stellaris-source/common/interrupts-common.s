@@ -139,7 +139,6 @@ irq_vektor_\Name:
 @ -----------------------------------------------------------------------------
 @ Common interrupt handlers for all targets
 @ -----------------------------------------------------------------------------
-
 interrupt systick
 interrupt svcall
 interrupt pendsv
