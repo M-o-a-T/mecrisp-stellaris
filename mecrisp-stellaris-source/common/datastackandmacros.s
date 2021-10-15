@@ -387,7 +387,7 @@ psp .req r7
 .ifdef color
 7:    .ascii "\x1B[31m\Meldung\x1B[0m\n"
 .else
-7:    .ascii "\Meldung\n"
+7:    .ascii "\Meldung"
 .endif
 8:      .p2align 1
 
@@ -404,7 +404,7 @@ psp .req r7
 .ifdef color
 7:    .ascii "\x1B[31m\Meldung\x1B[0m\n"
 .else
-7:    .ascii "\Meldung\n"
+7:    .ascii "\Meldung"
 .endif
 8:      .p2align 1
 
