@@ -102,3 +102,58 @@ eraseflash_intern:
         popda r0
         b.n eraseflash_intern
   
+@
+@ Signal handling
+@
+@ We need to
+@ - save+restore non-scratch registers r4…r7
+@ - use a temp param stack
+@ - save r0…r3 to the parameter stack
+@ - set the TOS register
+@
+@ Yes I know that this should live in its own file
+@ but this way is least intrusive to the rest of Mecrisp
+
+@------------------------------------------------------------------------------
+  Wortbirne Flag_visible|Flag_variable, "sigpsp" @ ( -- addr ) 
+  CoreVariable sigpsp
+@------------------------------------------------------------------------------
+  pushdatos
+  ldr tos, =sigpsp   
+  bx lr
+  .word 0  @ not set
+
+.macro pushreg register @ Push TOS on Datastack - a common, often used factor.
+
+  .ifdef m0core
+    subs psp, #4
+    str \register, [psp]
+  .else
+    str \register, [psp, #-4]!
+  .endif
+
+.endm
+
+@------------------------------------------------------------------------------
+  Wortbirne Flag_visible, "sigenter" @ ( -- )
+sigenter:
+@------------------------------------------------------------------------------
+  push { r4, r5, r6, r7 }
+  ldr psp, =sigpsp  
+  ldr psp, [ psp ]
+  pushreg r3
+  pushreg r2
+  pushreg r1
+  mov tos, r0
+  bx lr       
+
+
+@------------------------------------------------------------------------------
+  Wortbirne Flag_visible, "sigexit" @ ( result -- )
+sigexit:
+@------------------------------------------------------------------------------
+  popda r0
+  pop { r4, r5, r6, r7 }
+  bx lr       
+
+
