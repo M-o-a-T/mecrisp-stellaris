@@ -141,7 +141,6 @@ sigenter:
   push { r4, r5, r6, r7 }
   ldr psp, =sigpsp  
   ldr psp, [ psp ]
-  pushreg r3
   pushreg r2
   pushreg r1
   mov tos, r0
